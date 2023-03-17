@@ -1,0 +1,11 @@
+<mat-form-field appearance="fill">
+    <mat-label>Devices</mat-label>
+    <mat-select multiple [formControl]="providers" (openedChange)="onOpenChange(multiUserSearch)">
+      <mat-select-trigger>
+        {{providers.value }}
+      </mat-select-trigger>
+      <input #multiUserSearch type="text" autocomplete="off" matInput placeholder="Search by device" (input)="onInputChange($event)"/>
+  
+      <mat-option *ngFor="let provider of filteredProviders" [value]="provider.id">{{provider.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
